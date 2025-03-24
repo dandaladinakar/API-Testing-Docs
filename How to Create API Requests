@@ -1,0 +1,143 @@
+# How to Create API Requests
+
+This guide explains how to create and test API requests using Postman and a local server. It also includes troubleshooting tips.
+
+---
+
+## 1. Setting Up the Local Server
+
+We will use Docker to run a local server for testing API requests. Follow these steps:
+
+1. Update the submodule:
+   ```bash
+   git submodule update --init --recursive
+   ```
+
+2. Start the server:
+   ```bash
+   npm run server
+   ```
+
+3. Open the app in your browser (usually at [http://localhost:8080](http://localhost:8080)).
+
+4. Click **Create a RequestBin** to generate a URL for making requests.
+
+---
+
+## 2. Parts of an API Request
+
+An API request has four main parts:
+- **Method**: The HTTP method to be used, e.g., GET, POST.
+- **URL**: The endpoint to send the request to.
+- **Headers**: Additional metadata for the request.
+- **Body**: The data to be sent with the request (not used in GET requests).
+
+---
+
+## 3. Creating API Requests in Postman
+
+### 3.1 GET Request with Query Parameters
+
+1. Set the method to `GET`.
+2. Add query parameters directly to the URL in the format:  
+   `[RequestBin-URL]?key=value`
+
+Example:
+```bash
+http://localhost:8080?name=John
+```
+
+- Query parameters will appear in the **QueryString** section of the RequestBin page.
+
+---
+
+### 3.2 Path Variables
+
+- Replace parts of the URL with variables for dynamic values.  
+  Example:  
+  ```bash
+  http://api.example.com/users/:userId/posts/:postId
+  ```
+
+- Replace variables with real values in Postman under the **Params** section.
+
+---
+
+### 3.3 Adding Headers
+
+- Headers provide additional information like content type or authorization.  
+  Example:
+  ```
+  Content-Type: application/json
+  Authorization: Bearer <token>
+  ```
+
+- Add headers in the **Headers** section in Postman.
+
+---
+
+### 3.4 Sending Data in the Body
+
+There are three main ways to send data in the request body:
+
+#### 3.4.1 Form Data
+- Use the `form-data` option for sending key-value pairs.
+- Postman will automatically add `Content-Type: multipart/form-data`.
+
+#### 3.4.2 Raw Data
+- For REST APIs, use JSON or other raw formats.
+- Select `raw` and choose the data format (e.g., JSON).
+
+Example JSON:
+```json
+{
+  "name": "John",
+  "age": 30
+}
+```
+
+#### 3.4.3 Binary Data
+- Use this option for uploading files such as images or documents.
+
+---
+
+## 4. Inspecting Responses
+
+After sending a request in Postman, inspect the response with these key sections:
+
+1. **Status**: Indicates if the request was successful (e.g., 200 OK).
+2. **Body**: Contains the response data, shown in different formats (pretty, raw, or preview).
+3. **Headers**: Displays metadata about the response.
+
+---
+
+## 5. Working with Cookies
+
+- Cookies are exchanged between the browser and the server.
+- Use the **Cookies** tab in Postman to view, edit, or delete cookies.
+
+---
+
+## 6. Troubleshooting Tips
+
+Here are common troubleshooting tips for API requests:
+
+- **Check the URL**: Ensure the endpoint is correct.
+- **Verify the server**: Make sure the server is running and accessible.
+- **Protocol matters**: Confirm whether the endpoint uses HTTP or HTTPS.
+- **Debugging in Postman**: Use the Postman Console via **View > Show Postman Console** to review request/response logs.
+
+---
+
+## 7. Configuring Self-Signed Certificates
+
+1. Go to Postman **Preferences**.
+2. Disable **SSL certificate verification** temporarily to test the requests.
+3. To resolve issues permanently, add the certificate in the **Certificates** section of Postman settings.
+
+---
+
+This guide provides all the essential steps to create, test, and debug API requests efficiently.
+```
+
+This format ensures clarity and readability for GitHub documentation. Let me know if you'd like any further adjustments!
