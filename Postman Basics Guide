@@ -1,0 +1,107 @@
+# Postman Basics Guide
+
+## Table of Contents
+1. [What is the Request Builder?](#what-is-the-request-builder)
+2. [How to Send Simple Requests](#how-to-send-simple-requests)
+    - [GET Request Example](#get-request-example)
+    - [GET Request with Query Parameters](#get-request-with-query-parameters)
+3. [Saving Requests](#saving-requests)
+4. [Sending a POST Request](#sending-a-post-request)
+5. [Why Use Postman?](#why-use-postman)
+
+---
+
+## What is the Request Builder?
+
+The Request Builder is the main area in Postman where you can create and send requests. You can configure the following parts of a request:
+- **Method** (like GET, POST)
+- **Address** (URL to send the request to)
+- **Body** (data you want to send in the request)
+- **Headers** (extra information for the server)
+- **Cookies** (optional data for the request)
+
+---
+
+## How to Send Simple Requests
+
+### GET Request Example
+
+1. **Method**: `GET`
+2. **Address**: `httpbin.org`
+
+- When you send this request, Postman shows the response in the `Response` area.
+- Always check the **status code** (e.g., 200) to see if the request was successful.
+- In the `Body` section, you can see the response in three formats:
+  - `Raw`: Shows plain text.
+  - `Pretty`: Formats the response for easy reading.
+  - `Preview`: Shows the web page (if the response is HTML).
+
+---
+
+### GET Request with Query Parameters
+
+1. **Method**: `GET`
+2. **Address**: `httpbin.org/get?myparam1=1&myparam2=my-string`
+
+- When you send this request, the server returns a response in `json` format.
+- The `json` response includes an `args` property that shows the query parameters you sent.
+
+**Tip**: Instead of typing query parameters manually, click on the `Params` tab next to the URL. You can:
+- Add, disable, reorder, or delete parameters.
+- Save time by disabling parameters during manual testing.
+
+---
+
+## Saving Requests
+
+- Postman allows you to save requests, but first, you need to create a **collection**.
+- After creating a collection, you can save your request. You can rename the request to make it easier to recognize later.
+
+---
+
+## Sending a POST Request
+
+1. **Method**: `POST`
+2. **Address**: `httpbin.org/post`
+3. **Body**:
+   ```json
+   {
+     "name": "John",
+     "email": "john@example.com"
+   }
+   ```
+
+- For `POST` requests, the `Body` tab is enabled. Select how to send the data:
+  - **form-data**
+  - **x-www-form-urlencoded**
+  - **raw**
+  - **binary**
+- To send data as `json`:
+  1. Select `raw` in the `Body` tab.
+  2. From the dropdown on the right, choose `JSON`.
+
+When the request is sent, the server responds with the same `json` data you sent in the request.
+
+---
+
+## Why Use Postman?
+
+Postman is useful for:
+1. **Manual API Testing**: Send requests and check responses.
+2. **Creating Mock Servers**: Simulate APIs for testing.
+3. **Team Collaboration**: Share collections and work together.
+4. **API Documentation**: Create and share API documentation.
+5. **Scripting**:
+   - Create workflows and automated tasks.
+   - Write tests for APIs.
+6. **Automated API Testing**:
+   - Use the Collection Runner to test APIs automatically.
+   - Use Newman for CI/CD integration with Jenkins or other CI tools.
+   - Monitor APIs for regular testing.
+
+---
+```
+
+### Filename: `Postman_Basics_Guide.md`
+
+You can copy this file directly to your GitHub repository for clear and easy-to-read documentation. Let me know if you’d like additional formatting or examples!
